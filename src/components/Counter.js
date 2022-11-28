@@ -1,20 +1,22 @@
 import { useSelector, useDispatch } from "react-redux";
 
+import { counterActions } from "../store";
+
 import classes from "./Counter.module.css";
 
 const Counter = () => {
   const dispatch = useDispatch();
 
   const incrementHandler = () => {
-    dispatch({ type: "increment" });
+    dispatch(counterActions.increment());
   };
 
   const decrementHandler = () => {
-    dispatch({ type: "decrement" });
+    dispatch(counterActions.decrement());
   };
 
   const increaseHandler = (val) => {
-    dispatch({ type: "increase", value: val });
+    dispatch(counterActions.increase(val)); //    { type : "SOME_UNIQUE_ID", payload : val }
   };
 
   const hideHandler = () => {
